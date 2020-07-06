@@ -1,5 +1,5 @@
 <?php
-namespace Treetop1500\EasyadminDragndropSortBundle\DependencyInjection;
+namespace Vertacoo\EasyadminDragndropSortBundle\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;

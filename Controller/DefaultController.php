@@ -1,5 +1,5 @@
 <?php
-namespace Treetop1500\EasyadminDragndropSortBundle\Controller;
+namespace Vertacoo\EasyadminDragndropSortBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
