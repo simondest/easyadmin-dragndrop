@@ -1,0 +1,26 @@
+{
+	"name" : "simondest/easyadmin-dragndrop",
+	"license" : "MIT",
+	"description" : "A Symfony 5 bundle for allowing drag and drop sorting of entities in list views, incorporating the Sortable Doctrine Extension.",
+	"type" : "symfony-bundle",
+	"authors" : [{
+			"name" : "Robert Wade",
+			"email" : "rwade@grayloon.com"
+		}
+	],
+	"autoload" : {
+		"psr-4" : {
+			"Vertacoo\\EasyadminDragndropSortBundle\\" : ""
+		}
+	},
+	"require" : {
+		"php" : "~7.2.0",
+		"symfony/framework-bundle" : "~5.0",
+		"easycorp/easyadmin-bundle" : "~2.3"
+	},
+	"extra" : {
+		"branch-alias" : {
+			"dev-master" : "1.0-dev"
+		}
+	}
+}
