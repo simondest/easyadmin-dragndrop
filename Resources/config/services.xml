@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://symfony.com/schema/dic/services
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="Vertacoo\EasyadminDragndropSortBundle\Controller\DefaultController" public="true" autowire="true" class="Treetop1500\EasyadminDragndropSortBundle\Controller\DefaultController">
+        <service id="Vertacoo\EasyadminDragndropSortBundle\Controller\DefaultController" public="true" autowire="true" class="Vertacoo\EasyadminDragndropSortBundle\Controller\DefaultController">
             <tag name="container.service_subscriber" />
         </service>
     </services>
