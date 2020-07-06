@@ -9,7 +9,7 @@ let easyadminDragndropSort =
                         return this[this.length - 1];
                     };
                 }
-                let entityClass = "App\\Entity\\"+document.body.id.split('-').last();
+                let entityClass = document.body.id.split('-').last();
                 let content = document.getElementById("main");
                 let table = content.getElementsByClassName("table")[0];
                 let tbody = table.getElementsByTagName("tbody")[0];
