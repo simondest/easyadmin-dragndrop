@@ -5,6 +5,7 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="Vertacoo\EasyadminDragndropSortBundle\Controller\DefaultController" public="true" autowire="true" class="Vertacoo\EasyadminDragndropSortBundle\Controller\DefaultController">
+            <argument type="service" id="easyadmin.config.manager" />
             <tag name="container.service_subscriber" />
         </service>
     </services>

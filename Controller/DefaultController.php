@@ -5,7 +5,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
-use ReflectionClass;
+use EasyCorp\Bundle\EasyAdminBundle\Configuration\ConfigManager;
 
 /**
  * Class DefaultController
@@ -15,6 +15,13 @@ use ReflectionClass;
  */
 class DefaultController extends AbstractController
 {
+ 
+    private $configManager;
+
+    public function __construct(ConfigManager $configManager)
+    {
+        $this->configManager = $configManager;
+    }
 
     /**
      * Resorts an item using it's doctrine sortable property
@@ -32,19 +39,15 @@ class DefaultController extends AbstractController
     public function sortAction($entityClass, $id, $position, Request $request)
     {
         $entityClassNameArray = explode("\\", $entityClass);
+        $entity = $this->configManager->getEntityConfig($entityClass);
+        
         $entityClassName = end($entityClassNameArray);
-        /*try {
-            $rc = new ReflectionClass($entityClass);
-        } catch (\ReflectionException $error) {
-            throw new \ReflectionException("The class name " . $entityClass . "  cannot be reflected.");
-        }
         
         $em = $this->getDoctrine()->getManager();
-        $e = $em->getRepository($rc->getName())
-            ->find($id);
+        $e = $em->getRepository($entity['class'])->find($id);
         if (is_null($e)) {
             throw new NotFoundHttpException("The entity was not found");
-        }*/
+        }
         $e->setPosition($position);
         $em->persist($e);
         $em->flush();
@@ -53,7 +56,7 @@ class DefaultController extends AbstractController
             "entity" => $entityClassName,
             "sortField" => "position",
             "sortDirection" => "ASC",
-            //"filters" => json_decode($request->query->get('filters'))
+            "filters" => json_decode($request->query->get('filters'))
         ));
     }
 }
