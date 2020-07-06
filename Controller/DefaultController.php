@@ -37,14 +37,14 @@ class DefaultController extends AbstractController
             $rc = new ReflectionClass($entityClass);
         } catch (\ReflectionException $error) {
             throw new \ReflectionException("The class name " . $entityClass . "  cannot be reflected.");
-        }*/
+        }
         
         $em = $this->getDoctrine()->getManager();
         $e = $em->getRepository($rc->getName())
             ->find($id);
         if (is_null($e)) {
             throw new NotFoundHttpException("The entity was not found");
-        }
+        }*/
         $e->setPosition($position);
         $em->persist($e);
         $em->flush();
